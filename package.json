@@ -1,0 +1,26 @@
+{
+  "name": "student_progress_tracker",
+  "version": "1.0.0",
+  "description": "Student Progress Tracker build with hyperledger fabric blockchain",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vladislav-Zolotaryov/StudentProgressTracker.git"
+  },
+  "author": "Vladislav Zolotaryov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Vladislav-Zolotaryov/StudentProgressTracker/issues"
+  },
+  "homepage": "https://github.com/Vladislav-Zolotaryov/StudentProgressTracker#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "fabric-ca-client": "^1.1.0-preview",
+    "fabric-client": "^1.1.0-preview"
+  }
+}
