@@ -1,97 +1,85 @@
-import { Document, Schema, Model, model} from "mongoose";
-
 interface Identifiable {
-  id: Schema.Types.ObjectId;
+  id: string;
 }
 
 interface Nameable {
-  name(): String;
+  name(): string;
 }
 
 interface Person extends Identifiable, Nameable {
-  id: Schema.Types.ObjectId;
-  firstName: String;
-  middleName: String;
-  lastName: String;
-  inn: String;
-  photoUrl: String;
+  id: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  inn: string;
+  photoUrl: string;
 }
 
-export var StudentSchema = new Schema({
-  id: Schema.Types.ObjectId,
-  firstName: String,
-  middleName: String,
-  lastName: String,
-  inn: String,
-  photoUrl: String
-});
+class Teacher implements Person {
+  id: string;
+  name(): string {
+    return this.firstName + this.middleName + this.lastName;
+  }
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  inn: string;
+  photoUrl: string;
+  rank: string;
+  faculty: Faculty;
+}
 
-export const Student = model("Student", StudentSchema);
+class Faculty {
+  id: string;
+  name: string;
+}
 
-export var FacultySchema = new Schema({
-  id: Schema.Types.ObjectId,
-  name: String
-});
+class Subject implements Identifiable {
+  id: string;
+  name: string;
+  faculty: Faculty;
+}
 
-export const Faculty = model("Faculty", FacultySchema);
+class Record {
+  id: string;
+  proof: string;
+  subject: Subject;
+  student: Student;
+  teacher: Teacher;
+  timestamp: Date;
+  value: Number;
+}
 
-export var SubjectSchema = new Schema({
-  id: Schema.Types.ObjectId,
-  name: String,
-  faculty: Faculty
-});
+class Stream {
+  id: String;
+  subjects: Subject[];
+  records: Record[];
+  students: Student[];
+}
 
-export const Subject = model("Subject", SubjectSchema);
+class Term {
+  id: String;
+  startDate: Date;
+  endDate: Date;
+  streams: Stream[];
+}
 
-export var TeacherSchema = new Schema({
-  id: Schema.Types.ObjectId,
-  firstName: String,
-  middleName: String,
-  lastName: String,
-  inn: String,
-  photoUrl: String,
-  rank: String,
-  faculty: Faculty
-});
+class Student implements Person {
+  id: string;
+  name(): string {
+    return this.firstName + this.middleName + this.lastName;
+  }
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  inn: string;
+  photoUrl: string;
+}
 
-export const Teacher = model("Teacher", TeacherSchema);
-
-export var RecordSchema = new Schema({
-  id: Schema.Types.ObjectId,
-  proof: String,
-  subject: Subject,
-  student: Student,
-  teacher: Teacher,
-  timestamp: Date,
-  value: Number
-});
-
-export const Record = model("Record", RecordSchema);
-
-export var StreamSchema = new Schema({
-  id: Schema.Types.ObjectId,
-  subjects: [Subject],
-  records: [Record],
-  students: [Student]
-});
-
-export const Stream = model("Stream", StreamSchema);
-
-export var TermSchema = new Schema({
-  id: Schema.Types.ObjectId,
-  startDate: Date,
-  endDate: Date,
-  streams: [Stream]
-});
-
-export const Term = model("Term", TermSchema);
-
-export var UniversitySchema = new Schema({
-  id: Schema.Types.ObjectId,
-  name: String,
-  teachers: [Teacher],
-  terms: [Term],
-  students: [Student]
-});
-
-export const University = model("University", UniversitySchema);
+class University {
+  id: String;
+  name: String;
+  teachers: Teacher[];
+  terms: Term[];
+  students: Student[];
+}
