@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "main": "server/index.js",
   "dependencies": {
+    "@types/node": "^8.0.57",
     "angular": "~1.6.0",
     "angular-animate": "~1.6.0",
     "angular-aria": "~1.6.0",
@@ -15,6 +16,7 @@
     "angular-validation-match": "^1.9.0",
     "babel-polyfill": "^6.7.2",
     "babel-runtime": "^6.6.1",
+    "big-integer": "^1.6.26",
     "bluebird": "^3.3.3",
     "body-parser": "^1.13.3",
     "bootstrap": "~3.3.7",
