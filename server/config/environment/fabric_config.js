@@ -9,11 +9,11 @@ module.exports = {
     admin: {
       name: 'admin',
       pwd: 'adminpw'
-    },
-    channel: 'spt',
-    peer: {
-      uri: 'grpc://localhost:7051'
     }
+  },
+  channel: 'spt',
+  peer: {
+    uri: 'grpc://localhost:7051'
   }
 
 };
