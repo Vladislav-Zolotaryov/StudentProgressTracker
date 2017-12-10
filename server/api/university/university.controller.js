@@ -74,7 +74,7 @@ channel.addPeer(peer);
 
 export function index(req, res) {
   const query = {
-    chaincodeId: 'student-tracker-chaincode',
+    chaincodeId: 'main:v1',
     fcn: 'queryAll',
     args: ['']
   };
