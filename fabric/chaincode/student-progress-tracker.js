@@ -28,7 +28,7 @@ const Chaincode = class {
 
     return functor(this, stub, stub.getArgs().slice(1)).then(result => {
       console.info('Returning result %s', JSON.stringify(result));
-      return shim.success(result);
+      return shim.success(result.data);
     })
     .catch(err => shim.error(Buffer.from(err)));
   }
